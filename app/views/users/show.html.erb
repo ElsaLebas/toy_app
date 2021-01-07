@@ -12,15 +12,20 @@
 
 <p>
   <strong>First Post:</strong>
-  <%= @user.micropost.first.content%>
+  <%= link_to @user.micropost.first.content, @user.micropost.first%>
 </p>
 
 <p>
-  <strong>All Posts:</strong>
+  <strong>Old Posts:</strong>
   <% @user.micropost.each do |post|%>
-  <ul>
-    <li><%= post.content %></li>
-  </ul>
+    <% if post != @user.micropost[0] %>
+      <ul>
+        <li><%= link_to post.content, post %>
+            <%= link_to 'Destroy', post, method: :delete, data: { confirm: "Are you sure ?" } %>
+            <%= link_to 'Edit', edit_micropost_path(post) %>
+        </li>
+      </ul>
+    <% end %>
   <% end %>
 </p>
 

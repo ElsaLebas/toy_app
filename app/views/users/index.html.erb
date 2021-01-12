@@ -1,33 +1,22 @@
-<div class="banner" style="background-image: linear-gradient(rgba(255,255,255,0.4),rgba(255,255,255,0.4)), url(https://picsum.photos/id/114/200/300);">
-  <div class="container">
-    <div class="d-flex flex-column">
-        <h1>My Toy App</h1>
-        <h2>Read, share, contribute on any topic</h2>
-        <div class="btn btn-primary">
-          <%= link_to 'New User', new_user_path %>
-        </div>
-    </div>
-  </div>
+<div class="container">
+  <h1>My Toy App</h1>
+  <h2>Read, share, contribute on any topic</h2>
+  <%= link_to 'New User', new_user_path %>
 </div>
 
 <div class="container">
   <p id="notice"><%= notice %></p>
-  <h1 style="text-align: center;">
-    All our contributors
-  </h1>
-  <div class="d-flex justify-content-around">
-
-    <% @users.each do |user| %>
-      <div class="card-product">
-        <img src="https://raw.githubusercontent.com/lewagon/fullstack-images/master/uikit/skateboard.jpg" />
-        <div class="card-product-infos">
-          <%= user.name %>
-          <%= user.email %>
-          <%= link_to 'Show', user %>
-          <%= link_to 'Edit', edit_user_path(user) %>
-          <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
-        </div>
+  <h1>All our contributors</h1>
+  <% @users.each do |user| %>
+    <div class="card-product">
+      <img src="https://source.unsplash.com/featured/?nature"/>
+      <div class="card-product-infos">
+        <%= user.name %>
+        <%= user.email %>
+        <%= link_to 'Show', user %>
+        <%= link_to 'Edit', edit_user_path(user) %>
+        <%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %>
       </div>
-    <% end %>
-  </div>
+    </div>
+  <% end %>
 </div>
